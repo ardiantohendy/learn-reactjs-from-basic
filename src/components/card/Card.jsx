@@ -1,29 +1,12 @@
-import img1 from "../../assets/image/profile.jpg";
-import img2 from "../../assets/image/vanad.jpg";
-import img3 from "../../assets/image/windi.jpg";
+import PropTypes from "prop-types"; // Tambahkan ini
 import style from "./Card.module.css";
-const listObj = [
-  {
-    img: img1,
-    name: "Hendy Dwi Bayu",
-    about: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus voluptatibus illo delectus veniam odit.",
-  },
-  {
-    img: img2,
-    name: "Vanadya Decembry",
-    about: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus voluptatibus illo delectus veniam odit.",
-  },
-  {
-    img: img3,
-    name: "Windi Puspa",
-    about: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus voluptatibus illo delectus veniam odit.",
-  },
-];
 
-function Card() {
+//module styling format css
+
+function Card(props) {
   return (
     <div className={style.cardParent}>
-      {listObj.map((item, index) => (
+      {props.listObj.map((item, index) => (
         <div className={style.card} key={index}>
           <img src={item.img} alt="profile picture" />
           <h2>{item.name}</h2>
@@ -33,5 +16,15 @@ function Card() {
     </div>
   );
 }
+
+Card.propTypes = {
+  listObj: PropTypes.arrayOf(
+    PropTypes.shape({
+      img: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      about: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default Card;
