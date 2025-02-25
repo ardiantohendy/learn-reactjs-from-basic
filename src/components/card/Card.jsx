@@ -1,7 +1,7 @@
-import img1 from "../assets/image/profile.jpg";
-import img2 from "../assets/image/vanad.jpg";
-import img3 from "../assets/image/windi.jpg";
-
+import img1 from "../../assets/image/profile.jpg";
+import img2 from "../../assets/image/vanad.jpg";
+import img3 from "../../assets/image/windi.jpg";
+import style from "./Card.module.css";
 const listObj = [
   {
     img: img1,
@@ -22,9 +22,9 @@ const listObj = [
 
 function Card() {
   return (
-    <div className="cardParent">
+    <div className={style.cardParent}>
       {listObj.map((item, index) => (
-        <div className="card" key={index}>
+        <div className={style.card} key={index}>
           <img src={item.img} alt="profile picture" />
           <h2>{item.name}</h2>
           <p>{item.about}</p>
